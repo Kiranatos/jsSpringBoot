@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.kiranatos</groupId>
+    <artifactId>SMVNSpringBootDemo01</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>SMVNSpringBootDemo01</name>
+    <description>Demo project for Spring Boot</description>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- <maven.compiler.source>13</maven.compiler.source>
+        <maven.compiler.target>13</maven.compiler.target> -->
+        <java.version>1.8</java.version> <!-- only for Spring boot -->
+    </properties>
+    
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.3</version> <!-- т.к. указали тут версию, то в dependencies для groupId:org.springframework.boot указывать не объязательно -->
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId> <!-- базовая, поиск класса приложения, его запуск, конфигурирование -->            
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId> <!-- для веб-приложений, запуск через embeded томкат.
+        Но можно задать и jetty(spring-boot-starter-jetty) и сам томкат(spring-boot-starter-tomcat<scope>provided</scope>) -->
+        </dependency>                    
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId> <!-- вспомагательная, инструменты разработчика, определяет где запущено: на проде или на отладке - благодаря чему определяет автоматически, что нужно запустить, а что нет -->
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId> <!-- for tests -->            
+            <scope>test</scope>
+        </dependency>
+                
+        <!-- ЗАМЕНА JSP: -->
+        <!-- greeting.mustache + MustacheController --> <!--
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mustache</artifactId>            
+        </dependency> -->
+        
+        <!-- fm.ftl + FreemakerController --> <!-- 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>            
+        </dependency>  -->
+        <dependency> 
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>  <!-- -->
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
+                    <mainClass>net.kiranatos.demo01.MyApplication</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>    
+</project>
