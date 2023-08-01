@@ -1,0 +1,26 @@
+/.git/
+# .gitignore
+
+/FAILS/jsBootDemo03JPAQueriesByNameMethods/target/
+/FAILS/jsBootDemo03JPAQueriesByNameMethods/nbactions.xml
+
+/jsBootDemo01Application/target/
+/jsBootDemo01Application/nbactions.xml
+
+/jsBootDemo02/target/
+/jsBootDemo02/nbactions.xml
+
+/jsBootDemo03QueryMethods/target/
+/jsBootDemo03QueryMethods/nbactions.xml
+
+/jsBootDemo05JavaRushSpringNotScare/target/
+/jsBootDemo05JavaRushSpringNotScare/nbactions.xml
+
+/jsBootDemo98MinExample/target/
+/jsBootDemo98MinExample/nbactions.xml
+
+/jsBootDemo99/target/
+/jsBootDemo99/nbactions.xml
+
+/jsHibernate/target/
+/jsHibernate/nbactions.xml
