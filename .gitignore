@@ -1,26 +1,45 @@
 /.git/
 # .gitignore
 
-/FAILS/jsBootDemo03JPAQueriesByNameMethods/target/
-/FAILS/jsBootDemo03JPAQueriesByNameMethods/nbactions.xml
+/jsBootDemo010Application/target/
+/jsBootDemo010Application/nbactions.xml
 
-/jsBootDemo01Application/target/
-/jsBootDemo01Application/nbactions.xml
+/jsBootDemo020/target/
+/jsBootDemo020/nbactions.xml
 
-/jsBootDemo02/target/
-/jsBootDemo02/nbactions.xml
+/jsBootDemo100InitFromSQLFiles/target/
+/jsBootDemo100InitFromSQLFiles/nbactions.xml
 
-/jsBootDemo03QueryMethods/target/
-/jsBootDemo03QueryMethods/nbactions.xml
+/jsBootDemo110InitFromSQLFiles/target/
+/jsBootDemo110InitFromSQLFiles/nbactions.xml
 
-/jsBootDemo05JavaRushSpringNotScare/target/
-/jsBootDemo05JavaRushSpringNotScare/nbactions.xml
+/jsBootDemo120EntityRelationship/target/
+/jsBootDemo120EntityRelationship/nbactions.xml
 
-/jsBootDemo98MinExample/target/
-/jsBootDemo98MinExample/nbactions.xml
+/jsBootDemo140GeneratedID/target/
+/jsBootDemo140GeneratedID/nbactions.xml
 
-/jsBootDemo99/target/
-/jsBootDemo99/nbactions.xml
+/jsBootDemo150GeneratedID/target/
+/jsBootDemo150GeneratedID/nbactions.xml
+
+/jsBootDemo200QueryMethods/target/
+/jsBootDemo200QueryMethods/nbactions.xml
+
+/jsBootDemo201QueryMethodsBiDir/target/
+/jsBootDemo201QueryMethodsBiDir/nbactions.xml
+
+/jsBootDemo300JavaRushSpringNotScare/target/
+/jsBootDemo300JavaRushSpringNotScare/nbactions.xml
+
+/jsBootDemo980MinExample/target/
+/jsBootDemo980MinExample/nbactions.xml
+
+/jsBootDemo990/target/
+/jsBootDemo990/nbactions.xml
 
 /jsHibernate/target/
 /jsHibernate/nbactions.xml
+
+/xFAILS/
+
+/xSANDBOX/jsBootDemo201QueryMethodsBiDirBase/target/

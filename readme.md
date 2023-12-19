@@ -4,21 +4,74 @@
 - Додаткова інформація по базах даних в jsJDBC/ifiles/SQL.xlsx
 - Конспект по Lombok виніс в окремий проект без Спрінга: jsLombokWithoutSpring.
 
-01. jsBootDemo01Application
+010. jsBootDemo01Application
     Просто аплікація на Java, яка піддіймає веб-сервер!
-02. jsBootDemo02
-    Те що й в 01-м + приклад entity, repository, service, application.yml, application.properties та підключення H2 БД+
-    Без Ломбока.
-    Повторювати класи в наступному порядку: Applications > InitiateUtils > FruitRepository > FruitService > FruitEntity > application.yml > application.properties > pom.xml
-    Task: В pom.xml закоментовані декілька залежностей. Потрібно їх дослідити докладніше та можливо законспектувати деінде.
-03. jsBootDemo03QueryMethods
-    Spring Data JPA надає можливість генерувати SQL-запити автоматично на основі іменованих методів у репозиторіях. Цей підхід називається "запити, генеровані по імені методу" (Query Methods)
 
-05. jsBootDemo05JavaRushSpringNotScare 
+020. jsBootDemo02
+    Те що й в 01-м + приклад entity, repository, service, application.yml, application.properties та підключення H2 БД
+    Без Ломбока.
+    Повторювати класи/файли в наступному порядку: Applications > InitiateUtils > FruitRepository > FruitService > FruitEntity > application.yml > application.properties > pom.xml
+    Task: В pom.xml закоментовані декілька залежностей. Потрібно їх дослідити докладніше та можливо законспектувати деінде.
+       
+ ***
+
+100. jsBootDemo10InitFromSQLFiles
+    Мінімальна кількість файлів. Створення і заповнення таблиць H2 БД використовуючи два файла: schema.sql та data.sql.
+    Повторювати класи/файли в наступному порядку: 
+    Task: Роізбратись, що робе рядок В CREATE SEQUENCE HIBERNATE_SEQUENCE MINVALUE 1; в файлі schema.sql
+
+110. jsBootDemo11InitFromSQLFiles
+    БД H2. Таблиці створюються з файлу schema.sql. Таблиці заповнюються з файлу data.sql та Хібернейтом з коду проекта.
+    Повторювати класи/файли в наступному порядку: 
+    Task: див. законспектовану область в Applications класі.
+
+120. jsBootDemo12EntityRelationship
+    Приклад відношень сутностей @OneToOne, @OneToMany, @ManyToOne, @ManyToMany при Unidirectional та Bidirectional зв'язках.
+    Повторювати класи/файли в наступному порядку: Всі сутності в папці model, можливо в Util-класи, особливо в InitiateUtilsRolePlayer. 
+        + Chapter 1 в AnnotationsVocabulary.docx
+    Task: див. законспектовану область в Applications класі.
+
+130. Зарезервовано для дослідження в майбутньому проекту по каскадам: @OneToOne(cascade = CascadeType.ALL)       
+
+140. jsBootDemo14GeneratedID
+    Стратегії @GeneratedValue(strategy = GenerationType.___)
+        AUTO - див.класс AnimalEntity
+        IDENTITY - див.класс DrinkEntity
+        SEQUENCE - див.класс FacultyEntity, FeedbackEntity, файл schema.sql
+        TABLE - див.класс FruitEntity, PlanetEntity, PlantEntity, PlaneEntity
+        UUID - див.класс UniformEntity
+    Task: в FeedbackEntity є закоментовані анотації з гпт @GeneratedValue та @GenericGenerator. Треба розібратись чому не працюють.
+        + також розібратись з параметром allocationSize.
+
+150. jsBootDemo15GeneratedID
+    Стратегії @GenericGenerator
+        Вбудованні стратегії генерації ID Хібернейта - див.класс AnimalEntity
+        Стратегії на основі классів-генераторів з org.hibernate.id.* - див.класс DrinkEntity
+        Решта ___Entity-класси, поки що просто заглушки для майбутніх експерементів.
+    Task: Розглянути інші можливі варіанти стратегій. Зробити варіант користувацького классу-генератору, лінк в DrinkEntity.
+    
+200. jsBootDemo200QueryMethods
+    Spring Data JPA надає можливість генерувати SQL-запити автоматично на основі іменованих методів у репозиторіях. 
+    Цей підхід називається "запити, генеровані по імені методу" (Query Methods).
+    Part 1: одна сутність і одна БД таблиця
+    Повторювати класи-файли: 
+    Task: 
+201. jsBootDemo201QueryMethodsBiDir    
+    Part 2: дві сутності і дві БД таблиці. BiDirectional зв'язок.
+    Повторювати класи-файли: Applications, UserRepository, User, UserService, AccountRepository, AccountService, InitiateUtils
+    Task: див. законспектовану область в Applications класі.
+
+
+
+
+300. jsBootDemo30JavaRushSpringNotScare 
     Приклад з джавараш. Спочатку повтори проекти: jsBootDemo01Application, jsBootDemo02, jsLombokWithoutSpring так як основна інформація винесена і законспектована в ті проекти.
     Це тільки приклад з викрутасами, тому можна і пропустити. Однак оставив, тому-що не знаю, що з ним робити.
     Task: в классі FruitService є exist(Example<? extends FruitEntity> example), розібрать, що за Example і пригадати "?"
     Task: @GenericGenerator та @GeneratedValue приклади в Entity классах, можливо варто зробити окремий проект, де розписати докладно, як з ними працювати або записати все в AnnotationsVocabulary.docx.
+
+
+
 
 jsBootDemo98MinExample - мінімальна копія jsBootDemo02 для різних експерементів
 
@@ -29,10 +82,25 @@ FAILS:
 03. jsBootDemo03JPAQueriesByNameMethods (Spring Data JPA: запросы, генерируемые по имени метода)
     Приклад з https://sysout.ru/spring-data-jpa-zaprosy-generiruemye-po-imeni-metoda/
     ( Завдання:
-        - не запустився, продивитись і взнати, де тут була моя помилка пізніше
+        - не запустився, продивитись і взнати, де тут була моя помилка пізніше.
+          схоже, що помилка в тому, що я не можу дві зв'язані таблиці додати в БД - потрібно поекспериментувати з цим.
         - навчитись ініціалізувати бд з файлу data.sql)
+    Знайшов чужі проекти-гіти по цьому:
+    1) https://github.com/SoberGrim/sysout/tree/ecb7a29c46a56ec9a900a9b3b3c1a9f45de7e553/spring-data-jpa-1/src/main/resources
+        SoberGrim_sysout.zip
+        spring-data-jpa-1
+    2) https://github.com/AlexRogalskiy/sysout/blob/14a4df5a2477ba49b1c2960444a5e725887aaa11/spring-data-jpa-1/src/main/resources/data.sql#L7
+        AlexRogalskiy_sysout.zip
+        spring-data-jpa-1
+    3) https://github.com/myluckagain/sysout/blob/fdeccc5857aa0db1018dc641f0d8a1c1f6901df2/spring-data-jpa-1/src/main/resources/data.sql#L7
+        myluckagain_sysout.zip
+        spring-data-jpa-1
+Отже, перед тим як продовжити, потрібно: розібратись як з 
+ - data.sql файлу ініціалізувати
+ - добавляти 2 зв'язані таблиці в бд
 
-
+Спробувать запустити Хібернейт окремо:
+https://www.concretepage.com/hibernate/generatedvalue-strategy-generationtype-table-hibernate
 
 
 SoftServe Spring Tasks:
