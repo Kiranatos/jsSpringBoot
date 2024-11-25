@@ -4,10 +4,10 @@
 - Додаткова інформація по базах даних в jsJDBC/ifiles/SQL.xlsx
 - Конспект по Lombok виніс в окремий проект без Спрінга: jsLombokWithoutSpring.
 
-010. jsBootDemo01Application
+010. jsBootDemo010Application
     Просто аплікація на Java, яка піддіймає веб-сервер!
 
-020. jsBootDemo02
+020. jsBootDemo020
     Те що й в 01-м + приклад entity, repository, service, application.yml, application.properties та підключення H2 БД
     Без Ломбока.
     Повторювати класи/файли в наступному порядку: Applications > InitiateUtils > FruitRepository > FruitService > FruitEntity > application.yml > application.properties > pom.xml
@@ -15,14 +15,14 @@
        
  ***
 
-100. jsBootDemo10InitFromSQLFiles
+100. jsBootDemo100InitFromSQLFiles
     Мінімальна кількість файлів. Створення і заповнення таблиць H2 БД використовуючи два файла: schema.sql та data.sql.
     Повторювати класи/файли в наступному порядку: 
     Task: Роізбратись, що робе рядок В CREATE SEQUENCE HIBERNATE_SEQUENCE MINVALUE 1; в файлі schema.sql
 
-110. jsBootDemo11InitFromSQLFiles
+110. jsBootDemo110InitFromSQLFiles
     БД H2. Таблиці створюються з файлу schema.sql. Таблиці заповнюються з файлу data.sql та Хібернейтом з коду проекта.
-    Повторювати класи/файли в наступному порядку: 
+    Повторювати класи/файли в наступному порядку: Applications > application.properties >
     Task: див. законспектовану область в Applications класі.
 
 120. jsBootDemo12EntityRelationship
@@ -55,7 +55,7 @@
     Цей підхід називається "запити, генеровані по імені методу" (Query Methods).
     Part 1: одна сутність і одна БД таблиця
     Повторювати класи-файли: 
-    Task: 
+    Task: див. законспектовану область в Applications класі.
 201. jsBootDemo201QueryMethodsBiDir    
     Part 2: дві сутності і дві БД таблиці. BiDirectional зв'язок.
     Повторювати класи-файли: Applications, UserRepository, User, UserService, AccountRepository, AccountService, InitiateUtils
@@ -64,11 +64,14 @@
 
 
 
-300. jsBootDemo30JavaRushSpringNotScare 
-    Приклад з джавараш. Спочатку повтори проекти: jsBootDemo01Application, jsBootDemo02, jsLombokWithoutSpring так як основна інформація винесена і законспектована в ті проекти.
+300. jsBootDemo300FruitsJR (Из цыкла статей Java Rush: Spring — это не страшно) 
+    Приклад з Фруктами. Спочатку повтори проекти: jsBootDemo01Application, jsBootDemo02, jsLombokWithoutSpring так як основна інформація винесена і законспектована в ті проекти.
     Це тільки приклад з викрутасами, тому можна і пропустити. Однак оставив, тому-що не знаю, що з ним робити.
     Task: в классі FruitService є exist(Example<? extends FruitEntity> example), розібрать, що за Example і пригадати "?"
     Task: @GenericGenerator та @GeneratedValue приклади в Entity классах, можливо варто зробити окремий проект, де розписати докладно, як з ними працювати або записати все в AnnotationsVocabulary.docx.
+    Task: див. законспектовану область в Applications класі.
+301. jsBootDemo301LibraryJR (Из цыкла статей Java Rush: Spring — это не страшно) 
+    Приклад з Бібліотекою.
 
 
 

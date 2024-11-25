@@ -23,6 +23,11 @@ public class AccountService {
     //public void saveAll(List<Account> accounts) {
         accountRepository.saveAll(accounts);
     }
+    
+    /* ============= Demonstration #1 [ find…By, read…By, get…By, query…By, search…By, stream…By ] ============= */
+    public List<Account> searchAccountsByName(String name) {
+        return accountRepository.searchByName(name);                
+    }
         
     /* ============= Demonstration #4 ============= */
     public List<Account> findDistinctAccByUsersNameContaining(String name) {
@@ -48,10 +53,18 @@ public class AccountService {
     public List<Account> findAccountsByAmountIsGreaterThan(int n) {
         return accountRepository.findAccByAmountIsGreaterThan(n);        
     }
-    
-    
+        
     /* ============= Demonstration #6 ============= */
     public List<Account> findAccountsThatUsersOlderThan(int n) {
         return accountRepository.findDistinctByUser_YearsIsGreaterThan(n);        
+    }
+    
+    /* ============= Demonstration #7 AND ============= */
+    public List<Account> findByNameStartsWithAndAmountLessThan(String firstLetterOfName, int amount) {
+        return accountRepository.findDistinctByNameStartsWithAndAmountLessThan(firstLetterOfName, amount);        
+    }
+    
+    public List<Account> findByAmountIsGreaterThanAndUserNameStartsWith(long amount, String firstLetterOfName) {
+        return accountRepository.findDistinctByAmountIsGreaterThanAndUser_NameStartsWith(amount, firstLetterOfName);        
     }
 }

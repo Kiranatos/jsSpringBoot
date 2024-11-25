@@ -3,7 +3,7 @@
     
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.kiranatos.jsbootdemo04jpaqueriesbynamemethods</groupId>
-    <artifactId>jsBootDemo12EntityRelationship</artifactId>
+    <artifactId>jsBootDemo120EntityRelationship</artifactId>
     <version>1.0</version>
     
     <properties>

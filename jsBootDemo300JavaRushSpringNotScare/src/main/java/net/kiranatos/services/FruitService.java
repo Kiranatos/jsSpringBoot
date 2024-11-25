@@ -38,13 +38,24 @@ public class FruitService {
     public void saveAll(List<FruitEntity> fruits) {
         fruitRepository.saveAll(fruits);
     }
-    
+
     public List<FruitEntity> between(Integer from, Integer to) {
         List<FruitEntity> list = new ArrayList<>();
         for (int i = from; i <= to; i++) {
-            if (list.isEmpty()) list = fruitRepository.findByProviderCode(i);
-            else list.addAll(fruitRepository.findByProviderCode(i));
+            list.addAll(fruitRepository.findByProviderCode(i));
         }
         return list;
+    }
+
+    public List<String> joinString() {
+        return fruitRepository.joinSting();
+    }
+
+    public List<FruitEntity> joinFruit() {
+        return fruitRepository.joinFruit();
+    }
+    
+    public List<String> joinSqlFruit() {
+        return fruitRepository.joinSqlFruit();
     }
 }

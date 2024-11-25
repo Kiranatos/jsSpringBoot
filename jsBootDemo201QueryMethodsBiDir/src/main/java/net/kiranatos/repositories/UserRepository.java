@@ -12,6 +12,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     
     Optional<User> findFirstByName(String userName);
     
+    /* ============= Demonstration #1 [ find…By, read…By, get…By, query…By, search…By, stream…By ] ============= */    
+    List<User> streamByName(String name);
+    
     /* ============= Demonstration #4 ============= */
     /* Звернення до полів вкладеної сутності.
     В запиті можна врахувати не тільки поля самого User, а й accounts. Наприклад,
@@ -47,7 +50,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
     /*  WORD - будь-яке слово, частіще просто вказується назва сутності, тут наприклад можна написати WORD=User=Users
         find... Distinct ... By... IsGreaterThan - зарезервовані слова
         Accounts - поле accounts в класі User
-        Amount - відповідно поле amount в класі Account  */
+        Amount - відповідно поле amount в класі Account  */    
+    
+    /* ============= Demonstration #7 AND ============= */
+    List<User> findDistinctByNameStartsWithAndYearsIsGreaterThan(String firstLetterOfName, int years);
+    List<User> findDistinctByNameAndAccounts_AmountIsGreaterThan(String name, long amount);
+    
     
     
 }

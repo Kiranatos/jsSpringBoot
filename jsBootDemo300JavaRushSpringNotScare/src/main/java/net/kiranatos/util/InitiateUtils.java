@@ -18,77 +18,61 @@ public class InitiateUtils implements CommandLineRunner {
 
     private final FruitService fruitService;
     private final ProviderService providerService;
+    private final String[] arrFruits = new String[]{"Apple", "Orange", "Banana", "Mango", "Strawberry", "Pineapple", "Watermelon", "Kiwi", "Grape", "Pear", "Peach", "Pea", "Cherry"};
+    private final String[] arrProviders = new String[]{"Apple Provider", "Orange Provider", "Banana Provider", "Mango Provider", "Strawberry Provider", "Pineapple Provider", "Watermelon Provider", "Kiwi Provider", "Grape Provider", "Pear Provider", "Peach Provider", "Pea Provider", "Cherry Provider"};
 
     @Override
     public void run(String... args) throws Exception {
         System.out.println(" <<<RUN CommandLineRunner>>> ");
 
-        // Завдяки @Accessors(chain = true) в entities ми можемо заповнити (проініціалізувати) List наступним чином:
-        List<FruitEntity> fruit = new ArrayList<>(
-                Arrays.asList(
-                        new FruitEntity() 
-                                .setFruitName("Apple")
-                                .setProviderCode(Math.abs(new Random().nextInt() % 10)),
-                        new FruitEntity()
-                                .setFruitName("Fruit2")
-                                .setProviderCode(Math.abs(new Random().nextInt() % 10)),
-                        new FruitEntity()
-                                .setFruitName("Fruit3")
-                                .setProviderCode(Math.abs(new Random().nextInt() % 10)),
-                        new FruitEntity()
-                                .setFruitName("Fruit4")
-                                .setProviderCode(Math.abs(new Random().nextInt() % 10)),
-                        new FruitEntity()
-                                .setFruitName("Fruit5")
-                                .setProviderCode(Math.abs(new Random().nextInt() % 10)),
-                        new FruitEntity()
-                                .setFruitName("Fruit6")
-                                .setProviderCode(Math.abs(new Random().nextInt() % 10)),
-                        new FruitEntity()
-                                .setFruitName("Fruit7")
-                                .setProviderCode(Math.abs(new Random().nextInt() % 10)),
-                        new FruitEntity()
-                                .setFruitName("Fruit8")
-                                .setProviderCode(Math.abs(new Random().nextInt() % 10)),
-                        new FruitEntity()
-                                .setFruitName("Fruit9")
-                                .setProviderCode(Math.abs(new Random().nextInt() % 10))
-                )
-        );
-
-        
-        List<ProviderEntity> provider = new ArrayList<>(
-                Arrays.asList(
-                        new ProviderEntity()
-                                .setProviderName("Provider1"),
-                        new ProviderEntity()
-                                .setProviderName("Provider2"),
-                        new ProviderEntity()
-                                .setProviderName("Provider3"),
-                        new ProviderEntity()
-                                .setProviderName("Provider4"),
-                        new ProviderEntity()
-                                .setProviderName("Provider5")
-                )
-        );
-
-        fruitService.saveAll(fruit); 
+        initFruits(arrFruits);
+        initProviders(arrProviders);
 
         System.out.println("\nТаблиця фруктів");
-        for (FruitEntity fruitEntity : fruitService.getAll()) {
-            System.out.println(fruitEntity);
-        }
-
-        providerService.saveAll(provider);
+        print(fruitService.getAll());
 
         System.out.println("\nТаблиця постачальників");
-        for (ProviderEntity providerEntity : providerService.getAll()) {
-            System.out.println(providerEntity);
-        }
-        
+        print(providerService.getAll());
+
         System.out.println("\nВсе фрукти, у яких номер постачальника між 5 та 7");
-        for (FruitEntity fruitEntity : fruitService.between(5, 7)) {
-            System.out.println(fruitEntity);
+        print(fruitService.between(5, 7));
+
+        System.out.println("\nТаблиця фруктів та їх постачальників");
+        print(fruitService.joinString());
+
+        System.out.println("\nТаблиця фруктів та їх постачальників");
+        print(fruitService.joinFruit());
+        
+        System.out.println("\nТаблиця фруктів та їх постачальників");
+        print(fruitService.joinSqlFruit());
+
+    }
+
+    private void initFruits(String[] fruitNames) {
+        List<FruitEntity> fruitsList = new ArrayList<>();
+        for (String name : fruitNames) {
+            fruitsList.add(
+                    // Завдяки @Accessors(chain = true) в entities ми можемо заповнити (проініціалізувати) List наступним чином:
+                    new FruitEntity()
+                            .setFruitName(name)
+                            .setProviderCode(Math.abs(new Random().nextInt() % 10)));
+        }
+        fruitService.saveAll(fruitsList);
+    }
+
+    private void initProviders(String[] providerNames) {
+        List<ProviderEntity> providersList = new ArrayList<>();
+        for (String name : providerNames) {
+            providersList.add(
+                    new ProviderEntity()
+                            .setProviderName(name));
+        }
+        providerService.saveAll(providersList);
+    }
+
+    private <T> void print(List<T> list) {
+        for (T join : list) {
+            System.out.println("\t\t " + join);
         }
     }
 }

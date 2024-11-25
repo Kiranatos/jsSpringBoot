@@ -30,6 +30,11 @@ public class UserService {
                 .get();
     }
     
+    /* ============= Demonstration #1 [ find…By, read…By, get…By, query…By, search…By, stream…By ] ============= */
+    public List<User> searchStreamUsersByName(String name) {
+        return userRepository.streamByName(name);                
+    }
+    
     /* ============= Demonstration #4 ============= */
     public List<User> findDistinctUserByAccountsNameContaining(String name) {
         return userRepository.findDistinctUserByAccounts_NameContaining(name);        
@@ -60,5 +65,14 @@ public class UserService {
         //return userRepository.findDistinctByAccounts_AmountIsGreaterThan(n);        
         //return userRepository.findByAccounts_AmountIsGreaterThan(n);
         return userRepository.findWORDDistinctWORDByAccounts_AmountIsGreaterThan(n);
+    }
+    
+    /* ============= Demonstration #7 AND ============= */
+    public List<User> findByNameStartsWithAndYearsIsGreaterThan(String firstLetterOfName, int years) {
+        return userRepository.findDistinctByNameStartsWithAndYearsIsGreaterThan(firstLetterOfName, years);
+    }
+    
+    public List<User> findByNameAndAmountIsGreaterThan(String name, long amount) {
+        return userRepository.findDistinctByNameAndAccounts_AmountIsGreaterThan(name, amount);
     }
 }

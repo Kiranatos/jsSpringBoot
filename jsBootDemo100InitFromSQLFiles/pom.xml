@@ -3,7 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.kiranatos</groupId>
-    <artifactId>jsBootDemo10InitFromSQLFiles</artifactId>
+    <artifactId>jsBootDemo100InitFromSQLFiles</artifactId>
     <version>1.0</version>
     
     <properties>
